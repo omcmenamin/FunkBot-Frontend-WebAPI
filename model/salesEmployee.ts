@@ -4,6 +4,10 @@ export class SalesEmployee{
     Salary: number
     BankAccNumber: String
     NINumber: String
+
+    CommissionRate: String
+}
+
     CommissionRate: number
 }
 
