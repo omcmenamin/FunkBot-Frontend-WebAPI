@@ -1,8 +1,8 @@
 export class SalesEmployee{
     SalesEmployeeID: number
-    Name: string
+    Name: String
     Salary: number
     BankAccNumber: String
     NINumber: String
-    CommissionRate: String
+    CommissionRate: number
 }

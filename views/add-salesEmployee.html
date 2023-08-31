@@ -23,26 +23,26 @@
                             {{ errormessage }}
             </div>
                         {% endif %}
-            <form action="/add-salesEmployee" method="post">
+            <form action="/salesEmployees" method="post">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" class="form-control" value="{{Name}}" required>
+                        <input type="text" id="name" name="name" class="form-control" value="{{name}}" required>
                     </div>
                     <div class="form-group">
                         <label for="Salary">Salary</label>
-                        <input type="number" id="Salary" name="Salary" class="form-control" value="{{ Salary}}" required>
+                        <input type="number"  step="0.01" min="0" id="Salary" name="salary" class="form-control" value="{{ salary}}" required>
                     </div>
                     <div  class="form-group">
                         <label for="BankAccNumber">Bank Account Number</label>
-                        <input type="text" min="0" step="any" id="BankAccNumber" name="BankAccNumber" class="form-control" value="{{ BankAccNumber }}" required>
+                        <input type="text" min="0" step="any" id="BankAccNumber" name="bankAccNumber" class="form-control" value="{{ bankAccNumber }}" required>
                     </div>
                     <div  class="form-group">
                         <label for="NINumber">National Insurance Number</label>
-                        <input type="text" min="9" step="any" id="BankAccNumber" name="BankAccNumber" class="form-control" value="{{ NINumber }}" required>
+                        <input type="text" min="9" step="any" id="NINumber" name="niNumber" class="form-control" value="{{ niNumber }}" required>
                     </div>
                     <div  class="form-group">
                         <label for="CommissionRate">Commission Rate</label>
-                        <input type="text" min="0" step="any" id="CommissionRate" name="CommissionRate" class="form-control" value="{{ CommissionRate }}" required>
+                        <input type="number" min="0" step="any" id="CommissionRate" name="commRate" class="form-control" value="{{ commRate }}" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
