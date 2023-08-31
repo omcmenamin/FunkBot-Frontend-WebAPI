@@ -7,20 +7,20 @@ const salesEmployeeService = require('../service/salesEmployeeService')
 
 module.exports = function(app: Application){
 
-    app.get('/salesEmployee', async (req: Request, res: Response) => {
+    app.get('/salesEmployees', async (req: Request, res: Response) => {
         let data = [];
 
         try{
-            data = await salesEmployeeService.getsalesEmployee()
+            data = await salesEmployeeService.getSalesEmployee()
         } catch(e){
             console.error(e);
         }
-
-        res.render('list-salesEmployee', {salesEmployee: data})
+        console.log(data)
+        res.render('list-sales-Employees', {SalesEmployees: data})
 
     })
 
-    app.get('/salesEmployee/:id', async(req: Request, res: Response) => {
+    app.get('/salesEmployees/:id', async(req: Request, res: Response) => {
         let data: SalesEmployee;
 
         try{
@@ -31,22 +31,27 @@ module.exports = function(app: Application){
             console.error(e);
         }
 
-        res.render('view-salesemployee', {SalesEmployee: data})
+        res.render('view-sales-employees', {SalesEmployee: data})
 
     })
 
-    app.get('/add-salesemployee', async (req: Request, res: Response) => {
+    app.get('/add-salesEmployee', async (req: Request, res: Response) => {
         res.render('add-salesEmployee')
     })
 
-    app.post('/add-salesemployee', async (req:Request, res: Response) => {
+    app.post('/salesEmployees', async (req:Request, res: Response) => {
         let data: SalesEmployee = req.body
         let id: Number
+
+       
 
         try{
             id = await salesEmployeeService.createSalesEmployee(data)
 
-            res.redirect('/salesemployee/' + id)
+
+            res.redirect('/view-sales-employees/' + id)
+
+
 
         } catch(e) {
             console.error(e);

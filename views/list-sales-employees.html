@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset = "UTF-8">
-        <title>Products</title>
+        <title>View Sales Employees</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     </head>
     <body>
@@ -10,15 +10,15 @@
             <div class ="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>Delivery Employees</h1>
+                        <h1>Sales Employees</h1>
                     </div>
                 </div>
             </div>
         </header>
         <main class = "container mt-4">
-            <section id="deliveryEmployees" class="mt-4">
-                <h2>Delivery Employees</h2>
-                {% if deliveryEmployees and deliveryEmployees.length > 0 %}
+            <section id="salesEmployees" class="mt-4">
+                <h2>Sales Employees</h2>
+                {% if SalesEmployees and SalesEmployees.length > 0 %}
                 <table class ="table">
                     <thead>
                         <tr>
@@ -26,23 +26,25 @@
                             <th scope="col">Salary</th>
                             <th scope="col">Bank Account Number</th>
                             <th scope="col">National Insurance Number</th>
+                            <th scope="col">Commission Rate</th>
                         </tr>
                     </thead>
                     <tbody>
-                    {% for deliveryEmployee in deliveryEmployees %}
+                    {% for salesEmployee in SalesEmployees %}
                     <tr>
-                        <td>{{ deliveryEmployee.name }}</td>
-                        <td>{{ deliveryEmployee.salary }}</td>
-                        <td>{{ deliveryEmployee.bankAccNumber }}</td>
-                        <td>{{ deliveryEmployee.niNumber }}</td>
-                        <td><a href="/delivery-employees/{{ deliveryEmployee.deliveryEmployeeId }}">View</a></td>
+                        <td>{{ salesEmployee.name }}</td>
+                        <td>{{ salesEmployee.salary }}</td>
+                        <td>{{ salesEmployee.bankAccNumber }}</td>
+                        <td>{{ salesEmployee.niNumber }}</td>
+                        <td>{{ salesEmployee.commRate }}</td>
+                        <td><a href="/salesEmployees/{{ SalesEmployee.SalesEmployeeID }}">View</a></td>
                     </tr>
                     {% endfor %}
 
                     </tbody>
                 </table>
                 {% else %}
-                There are no Delivery Employees.
+                There are no Sales Employees.
                 {% endif %}
             </section>
         </main>

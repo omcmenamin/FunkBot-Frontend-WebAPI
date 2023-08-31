@@ -4,7 +4,7 @@ const axios = require('axios');
 module.exports.getSalesEmployee= async function () {
 
     try {
-        const response = await axios.get('http://localhost:8080/api/salesEmployee')
+        const response = await axios.get('http://localhost:8080/api/salesEmployees')
 
         return response.data
     } catch (e){
@@ -14,7 +14,7 @@ module.exports.getSalesEmployee= async function () {
 
 module.exports.getSalesEmployeeById = async function (id: number): Promise<SalesEmployee> {
     try{
-        const response = await axios.get('http://localhost:8080/api/salesEmployee/' + id)
+        const response = await axios.get('http://localhost:8080/api/salesEmployees/' + id)
     
         return response.data
     }catch(e){
@@ -22,10 +22,10 @@ module.exports.getSalesEmployeeById = async function (id: number): Promise<Sales
     }
 }
 
-module.exports.createProduct = async function (SalesEmployee:SalesEmployee): Promise<number> { 
+module.exports.createSalesEmployee = async function (SalesEmployee:SalesEmployee): Promise<number> { 
     
      try{
-         const response = await axios.post('http://localhost:8080/api/salesEmployee', SalesEmployee)
+         const response = await axios.post('http://localhost:8080/api/salesEmployees', SalesEmployee)
  
          return response.data
      } catch(e){
