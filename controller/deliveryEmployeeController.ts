@@ -35,14 +35,14 @@ module.exports = function(app: Application){
         res.render('add-delivery-employee')
     })
 
-    app.post('add-delivery-employee', async (req:Request, res: Response)=>{
+    app.post('/add-delivery-employee', async (req:Request, res: Response)=>{
         let data: DeliveryEmployee = req.body
         let id: Number
 
         try{
             id= await deliveryEmployeeService.createDeliveryEmployee(data)
 
-            res.redirect('/delivery-employees' +id)
+            res.redirect('/delivery-employees/' +id)
         }catch (e) {
             console.error(e);
 
