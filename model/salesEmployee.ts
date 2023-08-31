@@ -6,3 +6,6 @@ export class SalesEmployee{
     NINumber: String
     CommissionRate: String
 }
+
+// Hello, I like to leave my laptop unlocked
+// People could do whatever they wanted to my work
