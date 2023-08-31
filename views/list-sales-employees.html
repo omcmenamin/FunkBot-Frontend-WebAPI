@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>View Sales Employees</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </head>
+    <body>
+        <header class = "bg-dark text-light">
+            <div class ="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Sales Employees</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class = "container mt-4">
+            <section id="salesEmployees" class="mt-4">
+                <h2>Sales Employees</h2>
+                {% if SalesEmployees and SalesEmployees.length > 0 %}
+                <table class ="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Salary</th>
+                            <th scope="col">Bank Account Number</th>
+                            <th scope="col">National Insurance Number</th>
+                            <th scope="col">Commission Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for salesEmployee in SalesEmployees %}
+                    <tr>
+                        <td>{{ salesEmployee.name }}</td>
+                        <td>{{ salesEmployee.salary }}</td>
+                        <td>{{ salesEmployee.bankAccNumber }}</td>
+                        <td>{{ salesEmployee.niNumber }}</td>
+                        <td>{{ salesEmployee.commRate }}</td>
+                        <td><a href="/salesEmployees/{{ SalesEmployee.SalesEmployeeID }}">View</a></td>
+                    </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+                {% else %}
+                There are no Sales Employees.
+                {% endif %}
+            </section>
+        </main>
+    </body>
+</html>

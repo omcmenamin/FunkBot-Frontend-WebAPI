@@ -4,7 +4,7 @@ const axios = require('axios');
 module.exports.getSalesEmployee= async function () {
 
     try {
-        const response = await axios.get('http://localhost:8080/api/salesEmployee')
+        const response = await axios.get('http://localhost:8080/api/salesEmployees')
 
         return response.data
     } catch (e){
