@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>Add Delivery Employee</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </head>
+    <body>
+        <header class="bg-dark text-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Add Delivery Employee</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+       <main class="container mt-4">
+        <section id="form" class="bg-light py-5">
+            <div class="container">
+                <p>Enter Delivery Employee Details</p>
+                {% if errormessage %}
+                <div class="alert alert-danger" role="alert">
+                    {{ errormessage }}
+                    </div>
+                    {% endif %}
+                <form action="/add-delivery-employee" method="post">
+            <div class = "form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="form-control" value="{{ name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="salary">Salary</label>
+                <input type="number" id="salary" name = "salary" class="form-control" value="{{ salary }}" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Bank Account Number</label>
+                <input type="text" id="bankAccNumber" name="bankAccNumber" class="form-control" value="{{ bankAccNumber }}" required>
+            </div>
+            <div class="form-group">
+                <label for="niNumber">National Insurance Number</label>
+                <input type="text" id="niNumber" name="niNumber" class="form-control" value="{{ niNumber }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+ </section>
+ </main>
+</body>
+</html>

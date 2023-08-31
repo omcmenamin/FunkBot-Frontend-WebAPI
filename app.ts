@@ -34,3 +34,4 @@ app.listen(3000, ()=> {
 require('./controller/salesEmployeeController')(app);
 
 //Express routes
+require('./controller/deliveryEmployeeController')(app);
