@@ -35,18 +35,23 @@ module.exports = function(app: Application){
 
     })
 
-    app.get('/add-salesemployee', async (req: Request, res: Response) => {
+    app.get('/add-salesEmployee', async (req: Request, res: Response) => {
         res.render('add-salesEmployee')
     })
 
-    app.post('/add-salesemployee', async (req:Request, res: Response) => {
+    app.post('/salesEmployees', async (req:Request, res: Response) => {
         let data: SalesEmployee = req.body
         let id: Number
+
+       
 
         try{
             id = await salesEmployeeService.createSalesEmployee(data)
 
+
             res.redirect('/view-sales-employees/' + id)
+
+
 
         } catch(e) {
             console.error(e);

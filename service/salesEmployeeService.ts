@@ -22,7 +22,7 @@ module.exports.getSalesEmployeeById = async function (id: number): Promise<Sales
     }
 }
 
-module.exports.createProduct = async function (SalesEmployee:SalesEmployee): Promise<number> { 
+module.exports.createSalesEmployee = async function (SalesEmployee:SalesEmployee): Promise<number> { 
     
      try{
          const response = await axios.post('http://localhost:8080/api/salesEmployees', SalesEmployee)
