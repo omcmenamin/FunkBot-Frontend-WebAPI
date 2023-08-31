@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add SalesEmployee</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    </head>
+    <body>
+        <header class="bg-dark text-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Add Sales Employee</h1>
+            </div>
+        </div>
+    </div>
+    </header>
+        <main class="container mt-4">
+            <section id="form" class="bg-light py-5">
+        <div class="container">
+        <p>Enter Sales Employee details</p>
+                        {% if errormessage %}
+           <div class="alert alert-danger" role="alert">
+                            {{ errormessage }}
+            </div>
+                        {% endif %}
+            <form action="/add-salesEmployee" method="post">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" value="{{Name}}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Salary">Salary</label>
+                        <input type="number" id="Salary" name="Salary" class="form-control" value="{{ Salary}}" required>
+                    </div>
+                    <div  class="form-group">
+                        <label for="BankAccNumber">Bank Account Number</label>
+                        <input type="text" min="0" step="any" id="BankAccNumber" name="BankAccNumber" class="form-control" value="{{ BankAccNumber }}" required>
+                    </div>
+                    <div  class="form-group">
+                        <label for="NINumber">National Insurance Number</label>
+                        <input type="text" min="9" step="any" id="BankAccNumber" name="BankAccNumber" class="form-control" value="{{ NINumber }}" required>
+                    </div>
+                    <div  class="form-group">
+                        <label for="CommissionRate">Commission Rate</label>
+                        <input type="text" min="0" step="any" id="CommissionRate" name="CommissionRate" class="form-control" value="{{ CommissionRate }}" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                    </div>
+                </section>
+             </main>
+        </body>
+    </html>
