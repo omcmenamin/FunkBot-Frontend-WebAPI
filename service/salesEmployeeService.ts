@@ -21,3 +21,15 @@ module.exports.getSalesEmployeeById = async function (id: number): Promise<Sales
         throw new Error ('Could not get Sales Employee')
     }
 }
+
+module.exports.createProduct = async function (SalesEmployee:SalesEmployee): Promise<number> { 
+    
+     try{
+         const response = await axios.post('http://localhost:8080/api/salesEmployee', SalesEmployee)
+ 
+         return response.data
+     } catch(e){
+         console.log(e)
+         throw new Error('Could not create Sales Employee')
+     }
+ }
