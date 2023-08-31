@@ -6,3 +6,4 @@ export class SalesEmployee{
     NINumber: String
     CommissionRate: number
 }
+
