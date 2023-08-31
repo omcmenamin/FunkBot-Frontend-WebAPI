@@ -2,7 +2,6 @@ import { Application } from "express-serve-static-core";
 import { SalesEmployee } from "../model/salesEmployee";
 import { Request, Response } from "express";
 import session = require("express-session");
-import { responseEncoding } from "axios";
 
 const salesEmployeeService = require('../service/salesEmployeeService')
 
@@ -25,7 +24,7 @@ module.exports = function(app: Application){
         let data: SalesEmployee;
 
         try{
-            data = await salesEmployeeService.getProductById(req.params.id)
+            data = await salesEmployeeService.getSalesEmployeeById(req.params.id)
 
             console.log(data.SalesEmployeeID)
         }catch(e) {
@@ -37,7 +36,7 @@ module.exports = function(app: Application){
     })
 
     app.get('/add-salesemployee', async (req: Request, res: Response) => {
-        res.render('add-product')
+        res.render('add-salesEmployee')
     })
 
     app.post('/add-salesemployee', async (req:Request, res: Response) => {
@@ -45,7 +44,7 @@ module.exports = function(app: Application){
         let id: Number
 
         try{
-            id = await salesEmployeeService.createProduct(data)
+            id = await salesEmployeeService.createSalesEmployee(data)
 
             res.redirect('/salesemployee/' + id)
 
@@ -54,7 +53,7 @@ module.exports = function(app: Application){
 
             res.locals.errormessage = e.message
 
-            res.render('add-product', req.body);
+            res.render('add-salesEmployee', req.body);
         }
 
     })
