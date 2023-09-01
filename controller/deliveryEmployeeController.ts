@@ -21,13 +21,13 @@ module.exports = function(app: Application){
         let data: DeliveryEmployee 
 
         try{
-            data = await deliveryEmployeeService.getDeliveryEmployeesById(req.params.id)
-            res.render('view-delivery-employee', {deliveryEmployee: data})
+            data = await deliveryEmployeeService.getDeliveryEmployeesByID(req.params.id)
+            //res.render('view-delivery-employee', {deliveryEmployee: data})
 
         }catch (e) {
             console.error(e);
         }
-        res.render('view-delivery-employee')
+        res.render('view-delivery-employee',{deliveryEmployee: data})
 
     })
 
@@ -42,11 +42,11 @@ module.exports = function(app: Application){
         try{
             id= await deliveryEmployeeService.createDeliveryEmployee(data)
 
-            res.redirect('/delivery-employees/' +id)
+            res.redirect('delivery-employees')
         }catch (e) {
             console.error(e);
 
-            res.locals.errormessage = e.message
+            //res.locals.errormessage = e.message
 
             res.render('add-delivery-employee', req.body)
         }

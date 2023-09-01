@@ -7,7 +7,7 @@ const salesEmployeeService = require('../service/salesEmployeeService')
 
 module.exports = function(app: Application){
 
-    app.get('/salesEmployees', async (req: Request, res: Response) => {
+    app.get('/sales-employees', async (req: Request, res: Response) => {
         let data = [];
 
         try{
@@ -20,7 +20,7 @@ module.exports = function(app: Application){
 
     })
 
-    app.get('/salesEmployees/:id', async(req: Request, res: Response) => {
+    app.get('/sales-employees/:id', async(req: Request, res: Response) => {
         let data: SalesEmployee;
 
         try{
@@ -35,11 +35,11 @@ module.exports = function(app: Application){
 
     })
 
-    app.get('/add-salesEmployee', async (req: Request, res: Response) => {
-        res.render('add-salesEmployee')
+    app.get('/add-sales-employee', async (req: Request, res: Response) => {
+        res.render('add-sales-employee')
     })
 
-    app.post('/salesEmployees', async (req:Request, res: Response) => {
+    app.post('/add-sales-employee', async (req:Request, res: Response) => {
         let data: SalesEmployee = req.body
         let id: Number
 
@@ -49,7 +49,7 @@ module.exports = function(app: Application){
             id = await salesEmployeeService.createSalesEmployee(data)
 
 
-            res.redirect('/view-sales-employees/' + id)
+            res.redirect('sales-employees')
 
 
 
@@ -58,7 +58,7 @@ module.exports = function(app: Application){
 
             res.locals.errormessage = e.message
 
-            res.render('add-salesEmployee', req.body);
+            res.render('add-sales-employee', req.body);
         }
 
     })
